@@ -1,7 +1,7 @@
 {
   "name": "dubuqingfeng/laravel-shipyard",
   "version": "1.0",
-  "description": "shipyard API for Laravel",
+  "description": "A shipyard bridge for Laravel",
   "keywords": [
     "dubuqingfeng",
     "laravel",
