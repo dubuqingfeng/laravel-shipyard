@@ -1,0 +1,33 @@
+{
+  "name": "dubuqingfeng/laravel-shipyard",
+  "version": "1.0",
+  "description": "shipyard API for Laravel",
+  "keywords": [
+    "dubuqingfeng",
+    "laravel",
+    "shipyard",
+    "docker"
+  ],
+  "homepage": "https://github.com/dubuqingfeng/laravel-shipyard",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dubu Qingfeng",
+      "email": "1135326346@qq.com",
+      "homepage": "https://github.com/dubuqingfeng"
+    }
+  ],
+  "require": {
+    "illuminate/support": "~5.1",
+    "php": "~5.5|~7.0",
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dubuqingfeng\\Rancher\\": "src"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  }
+}
