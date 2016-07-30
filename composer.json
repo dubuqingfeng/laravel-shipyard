@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Dubuqingfeng\\Rancher\\": "src"
+      "Dubuqingfeng\\Shipyard\\": "src"
     }
   },
   "scripts": {

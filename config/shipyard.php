@@ -10,8 +10,12 @@ return [
     'connections' => [
         'main' => [
             'id' => 'your-application-id',
-            'key' => 'your-api-key',
+            'service_key' => env('SHIPYARD_SERVICE_KEY', 'your-api-key'),
         ],
+        'token' => [
+            'id' => 'your-application-id',
+            'token' => 'token'
+        ]
     ],
-    'base_url' => env('SHIPYARD_BASE_URL')
+    'base_url' => env('SHIPYARD_BASE_URL', 'https://localhost:8080/v1/')
 ];

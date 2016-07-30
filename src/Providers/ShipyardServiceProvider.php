@@ -19,6 +19,9 @@ class ShipyardServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $configPath = __DIR__ . '/../config/shipyard.php';
+        $this->publishes([$configPath => $this->getConfigPath()],'config');
+        $this->mergeConfigFrom($configPath,"shipyard");
     }
 
     /**
@@ -28,6 +31,11 @@ class ShipyardServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
+    }
+
+    public function getConfigPath(){
+        return config_path("shipyard.php");
     }
 
 }
