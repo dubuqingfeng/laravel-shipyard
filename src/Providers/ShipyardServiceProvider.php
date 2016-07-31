@@ -7,6 +7,7 @@
 
 namespace Dubuqingfeng\Shipyard;
 
+use Dubuqingfeng\ShipyardAPI\Client\Shipyard;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -31,6 +32,11 @@ class ShipyardServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
+        $this->registerFactory();
+        $this->registerManager();
+        $this->registerBindings();
+        $this->app->alias('rancher', 'Benmag\Rancher\Rancher');
 
     }
 
