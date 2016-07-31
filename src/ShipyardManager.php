@@ -3,7 +3,6 @@
  * Created by PhpStorm.
  * User: user
  * Date: 16-7-31
- * Time: 下午2:54
  */
 
 namespace Dubuqingfeng\Shipyard;

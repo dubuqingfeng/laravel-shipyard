@@ -8,6 +8,7 @@
 namespace Dubuqingfeng\Shipyard;
 
 use Dubuqingfeng\ShipyardAPI\Client\Shipyard;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -36,12 +37,53 @@ class ShipyardServiceProvider extends ServiceProvider
         $this->registerFactory();
         $this->registerManager();
         $this->registerBindings();
-        $this->app->alias('rancher', 'Benmag\Rancher\Rancher');
-
+//        $this->app->alias('rancher', 'Dubuqingfeng\Shipyard\Shipyard');
     }
 
     public function getConfigPath(){
         return config_path("shipyard.php");
+    }
+
+    /**
+     * Register the factory class.
+     *
+     * @return void
+     */
+    protected function registerFactory()
+    {
+        $this->app->singleton('shipyard.factory', function () {
+            return new ShipyardFactory();
+        });
+        $this->app->alias('shipyard.factory', ShipyardFactory::class);
+    }
+
+    /**
+     * Register the manager class.
+     *
+     * @return void
+     */
+    protected function registerManager()
+    {
+        $this->app->singleton('shipyard', function (Container $app) {
+            $config = $app['config'];
+            $factory = $app['shipyard.factory'];
+            return new ShipyardManager($config, $factory);
+        });
+        $this->app->alias('shipyard', ShipyardManager::class);
+    }
+
+    /**
+     * Register the bindings.
+     *
+     * @return void
+     */
+    protected function registerBindings()
+    {
+        $this->app->bind('shipyard.connection', function (Container $app) {
+            $manager = $app['shipyard'];
+            return $manager->connection();
+        });
+        $this->app->alias('shipyard.connection', Shipyard::class);
     }
 
 }
