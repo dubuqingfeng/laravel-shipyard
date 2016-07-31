@@ -23,7 +23,7 @@ class ShipyardServiceProvider extends ServiceProvider
     {
         $source = realpath(__DIR__.'/../../config/shipyard.php');
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
-            $this->publishes([$source => config_path('shipyard.php')]);
+            $this->publishes([$source => config_path('shipyard.php')], 'config');
         } elseif ($this->app instanceof LumenApplication) {
             $this->app->configure('shipyard');
         }
@@ -41,7 +41,7 @@ class ShipyardServiceProvider extends ServiceProvider
         $this->registerFactory();
         $this->registerManager();
         $this->registerBindings();
-//        $this->app->alias('rancher', 'Dubuqingfeng\Shipyard\Shipyard');
+//        $this->app->alias('shipyard', 'Dubuqingfeng\Shipyard\Shipyard');
     }
 
     /**
