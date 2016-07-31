@@ -20,7 +20,7 @@
   "require": {
     "illuminate/support": "~5.1",
     "php": "~5.5|~7.0",
-    "graham-campbell/manager": "^2.3",
+    "graham-campbell/manager": "^2.3"
   },
   "require-dev": {
     "dubuqingfeng/shipyard-api": "dev-master"
