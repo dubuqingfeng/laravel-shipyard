@@ -21,9 +21,13 @@ class ShipyardServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $configPath = __DIR__ . '/../config/shipyard.php';
-        $this->publishes([$configPath => $this->getConfigPath()],'config');
-        $this->mergeConfigFrom($configPath,"shipyard");
+        $source = realpath(__DIR__.'../../config/shipyard.php');
+        if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
+            $this->publishes([$source => config_path('shipyard.php')]);
+        } elseif ($this->app instanceof LumenApplication) {
+            $this->app->configure('shipyard');
+        }
+        $this->mergeConfigFrom($source, 'shipyard');
     }
 
     /**
@@ -38,10 +42,6 @@ class ShipyardServiceProvider extends ServiceProvider
         $this->registerManager();
         $this->registerBindings();
 //        $this->app->alias('rancher', 'Dubuqingfeng\Shipyard\Shipyard');
-    }
-
-    public function getConfigPath(){
-        return config_path("shipyard.php");
     }
 
     /**

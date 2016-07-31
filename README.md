@@ -12,6 +12,20 @@ Laravel shipyard uses composer.
 composer require dubuqingfeng/laravel-shipyard
 ```
 
-##Config
+Open up config/app.php and add the following to the providers key.
+
+```
+Dubuqingfeng\Shipyard\ShipyardServiceProvider::class,
+```
+
+##Configuration
 
 edit your **.env** file.
+
+##Usage
+
+##Security
+
+##License
+
+Laravel Shipyard is licensed under The MIT License (MIT).
