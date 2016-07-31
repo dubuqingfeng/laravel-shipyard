@@ -21,7 +21,7 @@ class ShipyardServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $source = realpath(__DIR__.'../../config/shipyard.php');
+        $source = realpath(__DIR__.'/../../config/shipyard.php');
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
             $this->publishes([$source => config_path('shipyard.php')]);
         } elseif ($this->app instanceof LumenApplication) {
