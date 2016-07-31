@@ -5,7 +5,7 @@
  * Date: 16-7-30
  */
 
-namespace Dubuqingfeng\Shipyard;
+namespace Dubuqingfeng\Shipyard\Providers;
 
 use Dubuqingfeng\ShipyardAPI\Client\Shipyard;
 use Illuminate\Contracts\Container\Container;

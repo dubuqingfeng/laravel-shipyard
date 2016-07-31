@@ -22,6 +22,10 @@ Dubuqingfeng\Shipyard\ShipyardServiceProvider::class,
 
 edit your **.env** file.
 
+```
+php artisan vendor:publish
+```
+
 ##Usage
 
 ##Security
